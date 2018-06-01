@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>this is master merge test3</title>
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+		var _hmt = _hmt || [];
+
+		var pageType = "index";
+		var phoneWidth =  parseInt(window.screen.width);
+
+		var phoneScale = phoneWidth/640;
+		var ua = navigator.userAgent;
+		if (/Android (\d+\.\d+)/.test(ua)){
+			var version = parseFloat(RegExp.$1);
+			if(version>2.3){
+				document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+			}
+		} else {
+			document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+		}
+	</script>
+</head>
+<body>
+    <p>hahah</p>
+<div id="wx_pic" style="margin:0 auto; display:none;">
+	<img src="images/social.png" alt="" />
+</div>
+<audio id="shaking" src="audio/shaking.mp3" controls hidden="true"></audio>
+<audio id="shakeover" src="audio/shakeover.mp3" controls hidden="true"></audio>
+<div class="swiper-container swiper-parent">
+  <div class="swiper-wrapper">
+  	<div class="swiper-slide page1 swiper-no-swiping">
+    	<p style="color:#e9c40e; font-size:34px; text-align:center; margin:0px auto; right:0px; position:absolute; top:50%; left:0px; display:block; "><span><img src="images/load.png" alt="" /></span><span>加载中 </span><span> .</span><span>.</span><span>.</span><span>.</span><span>.</span><span>.</span></p>
+    </div>
+    
+    <div class="swiper-slide page2 swiper-no-swiping">
+    	<span style="position:absolute; right:50px; top:46px;"><img src="images/logo.png" alt="" /></span>
+        <img src="images/tbg.png" alt="" style="position:absolute; top:36px; left:112px; z-index:4;" />
+        <img class="p2-c3" src="images/cloud3.png" alt="" />
+        <img class="p2-c4" src="images/cloud4.png" alt="" />
+        <img src="images/top.png" alt="" class="p2-top" />
+        <img src="images/bg.png" alt="" style="position:absolute; top:118px; left:7px; z-index:2;" />
+        <img class="p2-ld" src="images/l.png" alt="" />
+        <img src="images/left.png" alt="" class="p2-left" />
+        <img src="images/right.png" alt="" class="p2-right" />
+        
+        <img src="images/dog.png" alt="" class="p2-dog loop" />
+        
+        <img src="images/shake.png" alt="" style="position:absolute; bottom:30px; left:0px; right:0px; margin:0px auto;" />
+        
+        <div class="overlay-bg" style="display:none;"></div>
+        <div class="overlay-content" style="display:none;">
+        	<img src="images/1.png" class="q1 p-q" alt="" />
+            <img src="images/2.png" class="q2 p-q" alt="" />
+            <img src="images/3.png" class="q3 p-q" alt="" />
+            <img src="images/4.png" class="q4 p-q" alt="" />
+            <img src="images/overlay_bg.png" alt="" />
+            <p style="padding-left:25px; padding-right:40px;"><img class="p-share" src="images/share.jpg" alt="" /><img class="p-again" src="images/again.jpg" alt="" style="float:right;" /></p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/shake.js"></script>
+
+<script>  
+var _c=0;
+if (/webkit/.test(navigator.userAgent.toLowerCase())){
+	var _web = "webkitAnimationEnd";		
+} else {
+	_web = "animationend";
+}
+
+
+  var mySwiper = new Swiper ('.swiper-container', {
+   direction : 'horizontal',
+   noSwiping : true,
+   //pagination: '.swiper-pagination',
+  //virtualTranslate : true,
+   //mousewheelControl : true,
+   onInit: function(swiper){
+   swiperAnimateCache(swiper);
+   swiperAnimate(swiper);
+	},
+   onSlideChangeEnd: function(swiper){
+	swiperAnimate(swiper);
+	
+	
+	
+		
+    },
+	onTransitionEnd: function(swiper){
+	swiperAnimate(swiper);
+	
+	var index = mySwiper.activeIndex+1;
+	
+    }
+	
+	
+   });
+   
+   $(document).ready(function(){
+	$('html, body').animate({scrollTop:0});
+	
+}); 
+
+	
+
+$(window).resize(function() { 
+	
+	if ($(window).height() < 1038){
+		$(".swiper-container").css("height","1038px");
+	} else {
+		$(".swiper-container").css("height","100%");
+	}
+});
+</script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+
+	function autoPlayAudio(id){
+    var audio = document.getElementById(id);
+    audio.play();
+	
+  document.addEventListener("WeixinJSBridgeReady", function () {
+    audio.play();
+        }, false);
+  }
+</script>
+<script src="js/lottery.js"></script>
+</body>
+</html>
